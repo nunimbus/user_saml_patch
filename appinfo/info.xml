@@ -15,9 +15,8 @@
 	</types>
 	<category>tools</category>
 	<dependencies>
-		<nextcloud min-version="24" max-version="25" />
-		<apps>
-			<app>user_saml</app>
-		</apps>
+		<nextcloud min-version="25" max-version="25" />
+		<app>user_saml</app>
+		<lib>xdiff</lib>
 	</dependencies>
 </info>

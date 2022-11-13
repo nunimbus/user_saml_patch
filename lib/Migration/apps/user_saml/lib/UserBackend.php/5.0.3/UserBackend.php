@@ -552,7 +552,6 @@ class UserBackend implements IApacheBackend, UserInterface, IUserBackend, IProvi
 		return '';
 	}
 
-
 	/**
 	 * Optionally returns a stable per-user secret. This secret is for
 	 * instance used to secure file encryption keys.

@@ -9,7 +9,6 @@
 	<licence>agpl</licence>
 	<author>Andrew Summers</author>
 	<namespace>User_SAMLPatch</namespace>
-	<default_enable/>
 	<types>
 		<prevent_group_restriction />
 	</types>

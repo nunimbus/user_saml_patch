@@ -558,7 +558,7 @@ class UserBackend implements IApacheBackend, UserInterface, IUserBackend, IProvi
 	 * @return string|null
 	 * @since 23.0.0
 	 */
-	public function getCurrentUserSecret(): ?string {
+	public function getCurrentUserSecret(): string {
 		$samlData = $this->session->get('user_saml.samlUserData');
 		return $this->getUserSecret($this->getCurrentUserId(), $samlData);
 	}

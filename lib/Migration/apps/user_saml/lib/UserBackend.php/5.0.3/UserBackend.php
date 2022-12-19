@@ -165,7 +165,7 @@ class UserBackend implements IApacheBackend, UserInterface, IUserBackend, IProvi
 		$qb->select('token')
  		    ->from('user_saml_auth_token')
  		    ->where($qb->expr()->eq('uid', $qb->createNamedParameter($uid)))
- 		    ->where($qb->expr()->eq('name', $qb->createNamedParameter('sso_secret_hash')))
+ 		    ->andWhere($qb->expr()->eq('name', $qb->createNamedParameter('sso_secret_hash')))
  		    ->setMaxResults(10);
 		$result = $qb->execute();
 		$data = $result->fetchAll();
@@ -194,7 +194,7 @@ class UserBackend implements IApacheBackend, UserInterface, IUserBackend, IProvi
 			$qb->update('user_saml_auth_token')
 			  ->set('token', $qb->createNamedParameter($hash))
 			  ->where($qb->expr()->eq('uid', $qb->createNamedParameter($uid)))
- 			  ->where($qb->expr()->eq('name', $qb->createNamedParameter('sso_secret_hash')));
+ 			  ->andWhere($qb->expr()->eq('name', $qb->createNamedParameter('sso_secret_hash')));
 		} else {
 			$qb->insert('user_saml_auth_token')
 			  ->values([

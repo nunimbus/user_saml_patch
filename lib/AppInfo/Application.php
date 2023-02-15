@@ -31,6 +31,13 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OC_App;
 use OC;
 
+// Events
+use OCP\User\Events\BeforeUserDeletedEvent;
+
+// Event listeners
+use OCA\User_SAMLPatch\Listener\BeforeUserDeletedListener;
+
+
 class Application extends App implements IBootstrap {
 
 	public const APP_ID = 'user_saml_patch';
@@ -43,6 +50,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(BeforeUserDeletedEvent::class, BeforeUserDeletedListener::class);
 	}
 
 	public function boot(IBootContext $context): void {

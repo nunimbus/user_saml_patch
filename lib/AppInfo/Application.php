@@ -47,6 +47,13 @@ class Application extends App implements IBootstrap {
 
 		// Need to load the helper app and its classes
 		OC_App::loadApp('patch_assets');
+
+//		// Need to make the class available to the migrations if the app is not yet installed
+//		if (! (OC::$server->getAppManager()->isInstalled(self::APP_ID) && class_exists('OCA\\PatchAssets\\InstallFunctions'))) {
+//			$classMap = OC::$composerAutoloader->getClassMap();
+//			$classMap['OCA\\PatchAssets\\InstallFunctions'] = OC::$server->getAppManager()->getAppPath(self::APP_ID) . '/lib/assets/InstallFunctions.php';
+//			OC::$composerAutoloader->addClassMap($classMap);
+//		}
 	}
 
 	public function register(IRegistrationContext $context): void {
